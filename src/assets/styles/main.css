@@ -1,0 +1,55 @@
+@tailwind base;
+
+@font-face {
+  font-family: "Broken15";
+  src: url("/assets/fonts/BROKEN15.eot"); /* IE9 Compat Modes */
+  src: url("/assets/fonts/BROKEN15.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("/assets/fonts/BROKEN15.otf") format("opentype"), /* Open Type Font */
+    url("/assets/fonts/BROKEN15.svg") format("svg"), /* Legacy iOS */
+    url("/assets/fonts/BROKEN15.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("/assets/fonts/BROKEN15.woff") format("woff"), /* Modern Browsers */
+    url("/assets/fonts/BROKEN15.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  @apply text-blue-700 underline font-bold;
+}
+
+p {
+  @apply mb-3;
+}
+
+h1 {
+  @apply mb-8 text-center font-title;
+  font-size: 5rem;
+  line-height: 0.9;
+}
+
+h2 {
+  @apply font-title text-3xl leading-6 mt-6 uppercase;
+}
+
+h3 {
+  @apply font-bold;
+}
+
+.sidebar {
+  @apply fixed bg-black h-full text-white p-4 overflow-x-auto flex-col justify-between;
+}
+
+.sidebar .toc {
+  @apply mt-4;
+}
+
+.sidebar .toc a {
+  @apply text-gray-400 no-underline block;
+}
+
+.sidebar .toc a:hover {
+  @apply text-white;
+}
+
+@tailwind components;
+@tailwind utilities;

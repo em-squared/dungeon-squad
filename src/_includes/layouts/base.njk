@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{{ title }}</title>
+    <meta
+      name="description"
+      content="{{ site.description }}"
+    />
+    <meta name="author" content="{{ site.author }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta
+      property="og:description"
+      content="{{ site.description }}"
+    />
+    <meta property="og:locale" content="{{ site.locale }}" />
+    <meta property="og:site_name" content="{{ site.site_name }}" />
+    <link href="/assets/styles/main.css" rel="stylesheet" />
+
+    <link rel="manifest" href="/manifest.json">
+
+    <script>
+      if ("serviceWorker" in navigator)
+        navigator.serviceWorker.register("/service-worker.js");
+    </script>
+  </head>
+  <body id="body" class="lg:overflow-auto">
+    <div class="block lg:hidden fixed">
+      <a href="#" class="flex items-center m-4 px-3 py-2 border rounded text-gray-800 border-gray-800 hover:text-black hover:border-black bg-white hover:bg-gray-200" onClick="toggleNav();">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </a>
+    </div>
+    <div id="sidebar" class="sidebar lg:w-56 w-full hidden lg:flex">
+      <div class="block lg:hidden text-right">
+        <a href="#" class="float-right flex items-center px-3 py-2 border rounded text-gray-400 border-gray-400 hover:text-white hover:border-white">
+          <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Menu</title><path d="M0 0h24v24H0z" fill="none" /><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </a>
+      </div>
+      <div class="lg:mt-0 mt-8">
+        <a class="lg:text-center font-title text-2xl block text-gray-400 hover:text-white no-underline" href="/#page-title">
+          DUNGEON SQUAD!
+        </a>
+        {{ content | toc | safe }}
+      </div>
+      <div class="mt-4">
+        <ul>
+          <li>
+            <a class="no-underline text-gray-400 hover:text-white" href="http://livresdelours.blogspot.com/2020/09/dungeon-squad-en-vf.html" target="_blank">
+              <svg class="inline" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+              <span>Télécharger</span>
+            </a>
+          </li>
+        </ul>
+        <div class="mt-4 text-center text-gray-700 text-xs">
+          Site développé par Maxime Moraine
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto lg:pl-56 p-4">
+      <h1 id="page-title">{{ title }}</h1>
+      {{ content | safe }}
+    </div>
+    <footer class="mt-8 text-center bg-gray-200 p-8 lg:pl-64">
+      <div>Texte : Jason Morningstar <a href="https://bullypulpitgames.com/" target="_blank">bullypulpitgames.com</a></div>
+      <div>Traduction : Kobayashi <a href="http://livresdelours.blogspot.com/" target="_blank">livresdelours.blogspot.com</a></div>
+      <div>Illustrations : Alastair Jones</div>
+      <div>Site web : Maxime Moraine</div>
+      <img class="h-12 w-auto inline-block mt-4" alt="Creative Commons Attribution Non-commercial Share alike" src="/assets/images/by-nc-sa.eu_.png" />
+    </footer>
+
+    <script>
+      var nav = document.getElementById('sidebar');
+      var navlinks = nav.getElementsByTagName('a');
+      console.log(navlinks);
+      var body = document.getElementById('body');
+
+      function toggleNav() {
+        (nav.classList.contains('hidden')) ? nav.classList.remove('hidden') : nav.classList.add('hidden');
+        (body.classList.contains('overflow-hidden')) ? body.classList.remove('overflow-hidden') : body.classList.add('overflow-hidden');
+      }
+
+      for(var i = 0; i < navlinks.length; i++) {
+        navlinks[i].addEventListener('click', function() {
+          toggleNav();
+      });
+      }
+    </script>
+  </body>
+</html>

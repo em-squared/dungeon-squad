@@ -1,0 +1,25 @@
+{
+  "dir" : "ltr",
+  "lang" : "fr",
+  "name" : "DUNGEON SQUAD!",
+  "scope" : "/",
+  "display" : "standalone",
+  "start_url" : "/index.html",
+  "short_name" : "DUNGEON SQUAD!",
+  "theme_color" : "#000",
+  "description" : "DUNGEON SQUAD! est jeu de rôle destiné aux jeunes joueurs disposant d'une faible capacité d'attention et qui cherchent avant tout de l'aventure et de l'action.",
+  "orientation" : "any",
+  "background_color" : "#ffffff",
+  "icons" : [
+    {
+        "src": "/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+    },
+    {
+        "src": "/android-chrome-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }
+  ]
+}
